@@ -179,7 +179,7 @@
                     <img src="https://via.placeholder.com/150" alt="Sherida Levy">
                 </div>
                 <div class="staff-info">
-                    <h3>Sherida Levy</h3>
+                    <h3>Ms. Sherida Levy</h3>
                     <p>Program Coordinator</p>
                     <div class="contact-links">
                         <a href="tel:8762361895,4020">
@@ -199,7 +199,7 @@
                     <img src="{{ asset('images/Craig.jpg') }}" alt="Craig Wilmot">
                 </div>
                 <div class="staff-info">
-                    <h3>Craig Wilmot</h3>
+                    <h3>Mr. Craig Wilmot</h3>
                     <p>Program Officer</p>
                     <div class="contact-links">
                         <a href="tel:8762361895,3937">
