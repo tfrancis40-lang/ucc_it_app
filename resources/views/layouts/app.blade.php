@@ -154,6 +154,37 @@
         .main-content.collapsed {
             margin-left: 70px;
         }
+
+        /* CUSTOM PWA INSTALL BUTTON */
+        .pwa-install-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1200;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: #003366;
+            color: #ffffff;
+            border: none;
+            border-radius: 999px;
+            padding: 12px 18px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .pwa-install-btn:hover {
+            background: #00509e;
+            transform: translateY(-2px);
+        }
+
+        .pwa-install-btn i {
+            font-size: 1rem;
+            line-height: 1;
+        }
     </style>
 
     @yield('extra-css')
@@ -210,6 +241,11 @@
         @yield('content')
     </main>
 
+    <button id="customInstallBtn" class="pwa-install-btn" type="button">
+        <i class="bi bi-download"></i>
+        <span>Install App</span>
+    </button>
+
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -218,6 +254,29 @@
             sidebar.classList.toggle('collapsed');
             main.classList.toggle('collapsed');
         }
+
+        let deferredPrompt;
+        const installBtn = document.getElementById('customInstallBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'inline-flex';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            installBtn.style.display = 'none';
+        });
+
+        window.addEventListener('appinstalled', () => {
+            installBtn.style.display = 'none';
+            deferredPrompt = null;
+        });
     </script>
 
     {{-- PWA Service Worker Registration --}}

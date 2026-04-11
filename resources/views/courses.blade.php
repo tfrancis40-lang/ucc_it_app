@@ -5,7 +5,7 @@
 @section('extra-css')
 <style>
     .courses-wrapper {
-        max-width: 1100px;
+        max-width: 1150px;
         margin: 30px auto;
     }
 
@@ -19,51 +19,48 @@
     .courses-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+        gap: 28px 34px;
+    }
+
+    .course-folder {
+        position: relative;
+        padding-top: 18px;
+    }
+
+    .course-tab {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #003366;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        padding: 10px 18px;
+        border-radius: 16px 16px 0 0;
+        min-width: 120px;
+        text-align: center;
+        box-shadow: 0 6px 14px rgba(0, 51, 102, 0.25);
+        z-index: 2;
     }
 
     .course-card {
         background: #ffffff;
-        border-radius: 22px;
-        padding: 24px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        border: 1px solid #e9e9e9;
+        border-radius: 0 24px 24px 24px;
+        padding: 30px 26px 24px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        border-left: 3px solid #003366;
         text-align: left;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .course-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
-    }
-
-    .course-header {
-        margin-bottom: 16px;
+        min-height: 220px;
     }
 
     .course-title {
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #003366;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        line-height: 1.4;
-    }
-
-    .course-code {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.8rem;
+        margin: 12px 0 16px;
+        font-size: 1.22rem;
         font-weight: 700;
-        color: #003366;
-        background: #eef4ff;
-        padding: 6px 12px;
-        border-radius: 999px;
-        white-space: nowrap;
+        color: #1d1d1d;
+        line-height: 1.35;
     }
 
     .course-meta-row {
@@ -74,8 +71,8 @@
     }
 
     .meta-pill {
-        background: #f4f6fa;
-        border: 1px solid #e6e6e6;
+        background: #eef4ff;
+        border: 1px solid #dbe6ff;
         border-radius: 999px;
         padding: 8px 14px;
         display: inline-flex;
@@ -84,9 +81,9 @@
     }
 
     .meta-label {
-        font-size: 0.75rem;
+        font-size: 0.74rem;
         font-weight: 700;
-        color: #7a7a7a;
+        color: #5c6f9e;
         text-transform: uppercase;
         letter-spacing: 0.4px;
     }
@@ -94,12 +91,12 @@
     .meta-value {
         font-size: 0.9rem;
         font-weight: 600;
-        color: #1f1f1f;
+        color: #003366;
     }
 
     .course-description {
         color: #555555;
-        font-size: 0.97rem;
+        font-size: 0.96rem;
         line-height: 1.6;
     }
 
@@ -142,28 +139,27 @@
                 <div class="courses-grid">
             @endif
 
-            <div class="course-card">
-                <div class="course-header">
-                    <h3 class="course-title">
-                        <span class="course-code">{{ $course->code }}</span>
-                        {{ $course->name }}
-                    </h3>
-                </div>
+            <div class="course-folder">
+                <div class="course-tab">{{ $course->code }}</div>
 
-                <div class="course-meta-row">
-                    <div class="meta-pill">
-                        <span class="meta-label">Credits</span>
-                        <span class="meta-value">{{ $course->credits }}</span>
+                <div class="course-card">
+                    <h3 class="course-title">{{ $course->name }}</h3>
+
+                    <div class="course-meta-row">
+                        <div class="meta-pill">
+                            <span class="meta-label">Credits:</span>
+                            <span class="meta-value">{{ $course->credits }}</span>
+                        </div>
+
+                        <div class="meta-pill">
+                            <span class="meta-label">Pre-Requisites:</span>
+                            <span class="meta-value">{{ $course->pre_reqs ?: 'None' }}</span>
+                        </div>
                     </div>
 
-                    <div class="meta-pill">
-                        <span class="meta-label">Pre-reqs</span>
-                        <span class="meta-value">{{ $course->pre_reqs ?: 'None' }}</span>
+                    <div class="course-description">
+                        {{ $course->description }}
                     </div>
-                </div>
-
-                <div class="course-description">
-                    {{ $course->description }}
                 </div>
             </div>
 
