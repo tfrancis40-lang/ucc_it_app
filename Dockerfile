@@ -36,3 +36,5 @@ EXPOSE 8000
 
 # Start Laravel (adjust if using Nginx in production)
 CMD php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
+
+RUN touch database/database.sqlite
