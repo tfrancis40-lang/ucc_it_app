@@ -3,6 +3,9 @@
 ## Project Description
 The UCC IT Web App is a Progressive Web App (PWA) developed for the Department of Information Technology at the University of the Commonwealth Caribbean. The application provides students with quick access to departmental information, resources, and contact options through a clean and mobile-friendly interface.
 
+## Live Application
+
+
 ## Features
 - Faculty/Staff Directory
 - Courses Section with database integration
@@ -31,9 +34,7 @@ The UCC IT Web App is a Progressive Web App (PWA) developed for the Department o
 
 ## Group Members
 - Akeem Farquharson (20231729)
-  GitHub Repository: 
 - Tati-Anna Francis (20241436)
-  GitHub Repository:
 
 ## How to Run the Project
 1. Clone or extract the project folder.
@@ -41,10 +42,10 @@ The UCC IT Web App is a Progressive Web App (PWA) developed for the Department o
 3. Open the terminal in the project folder.
 4. Run the following commands line-by-line:
 
-   composer install
-   cp .env.example .env
-   php artisan key:generate
-   php artisan migrate:fresh --seed
-   php artisan serve
+   - composer install
+   - cp .env.example .env
+   - php artisan key:generate
+   - php artisan migrate:fresh --seed
+   - php artisan serve
 
 5. Open the application in your browser using the local server link provided.
