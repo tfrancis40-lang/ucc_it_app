@@ -3,11 +3,14 @@
 @section('title', 'UCC Admissions')
 
 @section('content')
+    <!-- Admissions page container -->
     <div class="admissions-wrapper">
         <h1 class="admissions-title">Admissions</h1>
 
+        <!-- Grid displaying different admission pathways -->
         <div class="admissions-grid">
 
+            <!-- Standard entry requirements -->
             <div class="admission-card">
                 <i class="bi bi-journal-text admission-icon"></i>
                 <h4>Standard Entry</h4>
@@ -18,6 +21,7 @@
                 </p>
             </div>
 
+            <!-- Alternative entry pathway for applicants with fewer subjects -->
             <div class="admission-card">
                 <i class="bi bi-pencil-square admission-icon"></i>
                 <h4>4-Subject Pathway</h4>
@@ -28,6 +32,7 @@
                 </p>
             </div>
 
+            <!-- Entry option for experienced applicants without traditional qualifications -->
             <div class="admission-card">
                 <i class="bi bi-briefcase-fill admission-icon"></i>
                 <h4>Mature Entry</h4>
@@ -40,6 +45,7 @@
 
         </div>
 
+        <!-- External link to UCC application portal -->
         <div class="apply-wrapper">
             <a href="https://ucc.edu.jm/apply/undergraduate" target="_blank" class="apply-btn">
                 Apply Now <i class="bi bi-arrow-right"></i>

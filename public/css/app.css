@@ -1,6 +1,8 @@
 /* =========================================================
    GLOBAL STYLES
    ========================================================= */
+
+/* Base page styling used across the application */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -11,7 +13,7 @@ body {
    SHARED LAYOUT (app.blade.php)
    ========================================================= */
 
-/* TOP BANNER */
+/* Fixed top banner containing the menu toggle and logo */
 .top-banner {
     position: fixed;
     top: 0;
@@ -28,6 +30,7 @@ body {
     gap: 18px;
 }
 
+/* Sidebar toggle button */
 .menu-toggle {
     background: none;
     border: none;
@@ -38,6 +41,7 @@ body {
     flex-shrink: 0;
 }
 
+/* Logo container inside the top banner */
 .banner-logo-card {
     height: 100px;
     width: 360px;
@@ -49,6 +53,7 @@ body {
     flex-shrink: 1;
 }
 
+/* Banner logo image */
 .banner-logo {
     width: 100%;
     height: 100%;
@@ -57,7 +62,7 @@ body {
     display: block;
 }
 
-/* SIDEBAR */
+/* Fixed sidebar navigation */
 .sidebar {
     position: fixed;
     top: 110px;
@@ -72,15 +77,18 @@ body {
     flex-direction: column;
 }
 
+/* Collapsed sidebar state */
 .sidebar.collapsed {
     width: 70px;
 }
 
+/* Navigation area inside the sidebar */
 .sidebar-nav {
     flex: 1;
     padding-top: 10px;
 }
 
+/* Shared styling for sidebar links */
 .nav-item {
     display: flex;
     align-items: center;
@@ -95,21 +103,24 @@ body {
     background: #eef4ff;
 }
 
+/* Sidebar icon styling */
 .nav-icon {
     font-size: 1.3rem;
     min-width: 24px;
     text-align: center;
 }
 
+/* Hide labels when the sidebar is collapsed */
 .sidebar.collapsed .nav-label {
     display: none;
 }
 
-/* SIDEBAR FOOTER */
+/* Sidebar footer containing the email FAB */
 .sidebar-footer {
     padding: 16px 12px 20px;
 }
 
+/* Email action button pinned to the sidebar footer */
 .email-fab {
     display: flex;
     align-items: center;
@@ -141,6 +152,7 @@ body {
     white-space: nowrap;
 }
 
+/* Adjust footer button layout when sidebar is collapsed */
 .sidebar.collapsed .email-fab {
     padding: 14px 0;
     border-radius: 16px 16px 0 0;
@@ -150,7 +162,7 @@ body {
     display: none;
 }
 
-/* MAIN CONTENT */
+/* Main page content area beside the sidebar */
 .main-content {
     margin-top: 110px;
     margin-left: 220px;
@@ -162,7 +174,7 @@ body {
     margin-left: 70px;
 }
 
-/* PWA BUTTON */
+/* Custom install button for the PWA */
 .pwa-install-btn {
     position: fixed;
     right: 20px;
@@ -189,6 +201,8 @@ body {
 /* =========================================================
    HOME PAGE (welcome.blade.php)
    ========================================================= */
+
+/* Home page wrapper */
 .home-wrapper {
     max-width: 1000px;
     margin: 30px auto;
@@ -201,12 +215,14 @@ body {
     margin-bottom: 30px;
 }
 
+/* Dashboard card grid on the welcome page */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
+/* Reusable dashboard navigation card */
 .dashboard-card {
     background: #ffffff;
     border-radius: 22px;
@@ -244,6 +260,8 @@ body {
 /* =========================================================
    DIRECTORY PAGE (directory.blade.php)
    ========================================================= */
+
+/* Faculty directory page wrapper */
 .directory-wrapper {
     max-width: 1200px;
     margin: 30px auto;
@@ -256,12 +274,14 @@ body {
     margin-bottom: 30px;
 }
 
+/* Grid for staff profile cards */
 .staff-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
 }
 
+/* Reusable faculty/staff profile card */
 .staff-card {
     background: #ffffff;
     border-radius: 22px;
@@ -309,6 +329,7 @@ body {
     font-weight: 500;
 }
 
+/* Contact action buttons within each staff card */
 .contact-links {
     display: flex;
     gap: 12px;
@@ -349,6 +370,8 @@ body {
 /* =========================================================
    COURSES PAGE (courses.blade.php)
    ========================================================= */
+
+/* Courses page wrapper */
 .courses-wrapper {
     max-width: 1150px;
     margin: 30px auto;
@@ -361,17 +384,20 @@ body {
     margin-bottom: 30px;
 }
 
+/* Grid for displaying course cards */
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 28px 34px;
 }
 
+/* Folder-style course card wrapper */
 .course-folder {
     position: relative;
     padding-top: 18px;
 }
 
+/* Course code tab at the top of the folder card */
 .course-tab {
     position: absolute;
     top: 0;
@@ -390,6 +416,7 @@ body {
     z-index: 2;
 }
 
+/* Main course card content */
 .course-card {
     background: #ffffff;
     border-radius: 0 24px 24px 24px;
@@ -408,6 +435,7 @@ body {
     line-height: 1.35;
 }
 
+/* Row containing metadata pills */
 .course-meta-row {
     display: flex;
     gap: 10px;
@@ -415,6 +443,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Reusable pill styling for course details */
 .meta-pill {
     background: #eef4ff;
     border: 1px solid #dbe6ff;
@@ -445,6 +474,7 @@ body {
     line-height: 1.6;
 }
 
+/* Empty state card shown when no courses exist */
 .empty-card {
     background: #ffffff;
     border-radius: 22px;
@@ -470,6 +500,8 @@ body {
 /* =========================================================
    ADMISSIONS PAGE (admissions.blade.php)
    ========================================================= */
+
+/* Admissions page wrapper */
 .admissions-wrapper {
     max-width: 1100px;
     margin: 30px auto;
@@ -482,12 +514,14 @@ body {
     margin-bottom: 30px;
 }
 
+/* Grid for admission requirement cards */
 .admissions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 26px;
 }
 
+/* Reusable admission information card */
 .admission-card {
     background: #ffffff;
     border-radius: 22px;
@@ -517,6 +551,7 @@ body {
     margin: 0;
 }
 
+/* Application link button */
 .apply-wrapper {
     margin-top: 35px;
 }
@@ -540,6 +575,8 @@ body {
 /* =========================================================
    SOCIAL PAGE (socials.blade.php)
    ========================================================= */
+
+/* Social media page wrapper */
 .socials-wrapper {
     max-width: 950px;
     margin: 30px auto;
@@ -558,12 +595,14 @@ body {
     margin-bottom: 30px;
 }
 
+/* Grid for social media cards */
 .socials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
+/* Reusable social media card */
 .social-card {
     background: #ffffff;
     border-radius: 22px;
@@ -573,6 +612,7 @@ body {
     text-align: center;
 }
 
+/* Platform icon container */
 .social-icon-wrap {
     width: 72px;
     height: 72px;
@@ -608,6 +648,7 @@ body {
     font-weight: 700;
 }
 
+/* Reusable external social link button */
 .social-btn {
     display: inline-flex;
     align-items: center;
@@ -638,6 +679,8 @@ body {
 /* =========================================================
    RESPONSIVE
    ========================================================= */
+
+/* Adjust medium screens for faculty, admissions, and socials */
 @media (max-width: 992px) {
     .staff-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -652,12 +695,14 @@ body {
     }
 }
 
+/* Stack course cards on smaller screens */
 @media (max-width: 900px) {
     .courses-grid {
         grid-template-columns: 1fr;
     }
 }
 
+/* Mobile layout adjustments */
 @media (max-width: 768px) {
     .top-banner {
         height: 100px;

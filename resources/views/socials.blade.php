@@ -3,11 +3,18 @@
 @section('title', 'UCC Social Media')
 
 @section('content')
+    <!-- Social media page container -->
     <div class="socials-wrapper">
         <h1 class="socials-title">Social Media</h1>
-        <p class="socials-subtitle">Stay connected with updates, announcements, and student life across UCC’s social platforms.</p>
 
+        <p class="socials-subtitle">
+            Stay connected with updates, announcements, and student life across UCC’s social platforms.
+        </p>
+
+        <!-- Grid of social media cards -->
         <div class="socials-grid">
+
+            <!-- Social media card (reused structure for each platform) -->
             <div class="social-card">
                 <div class="social-icon-wrap facebook-wrap">
                     <i class="bi bi-facebook social-icon"></i>
@@ -40,6 +47,7 @@
                     Open Instagram
                 </a>
             </div>
+
         </div>
     </div>
 @endsection

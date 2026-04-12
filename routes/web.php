@@ -11,12 +11,12 @@ Route::get('/directory', function () {
     return view('faculty');
 });
 
-Route::get('/socials', function () {
-    return view('socials');
-});
-
 Route::get('/courses', [CourseController::class, 'index']);
 
 Route::get('/admissions', function () {
     return view('admissions');
+});
+
+Route::get('/socials', function () {
+    return view('socials');
 });

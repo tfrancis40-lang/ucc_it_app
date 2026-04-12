@@ -3,11 +3,14 @@
 @section('title', 'Faculty Directory - UCC IT')
 
 @section('content')
+    <!-- Faculty directory container -->
     <div class="directory-wrapper">
         <h1 class="directory-title">IT Faculty</h1>
 
+        <!-- Grid layout displaying faculty members -->
         <div class="staff-grid">
 
+            <!-- Individual staff card (structure reused for each faculty member) -->
             <div class="staff-card">
                 <div class="staff-photo">
                     <img src="{{ asset('images/p_ndajah.jpg') }}" alt="Peter Ndajah">
@@ -15,6 +18,8 @@
                 <div class="staff-info">
                     <h3>Dr. Peter Ndajah</h3>
                     <p>Dean</p>
+
+                    <!-- Contact actions -->
                     <div class="contact-links">
                         <a href="tel:8763391279,4037">
                             <i class="bi bi-telephone-fill"></i>
