@@ -1,33 +1,38 @@
+# Use PHP 8.4 (fixes Symfony >=8 requirement)
 FROM php:8.4-fpm
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    unzip \
-    git \
-    curl \
-    libzip-dev \
-    zip
-
-# Install PHP extensions
-RUN docker-php-ext-install pdo pdo_mysql zip
-
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /app
 
-# Copy project
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    unzip \
+    libzip-dev \
+    zip \
+    && docker-php-ext-install zip pdo pdo_mysql
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy project files into container
 COPY . .
 
-# Install dependencies
-RUN composer install
+# Install PHP dependencies
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Generate key
+# Create .env file from example (fixes your error)
+RUN cp .env.example .env
+
+# Generate Laravel app key
 RUN php artisan key:generate
 
-# Expose port
-EXPOSE 10000
+# Set permissions (important for Laravel)
+RUN chmod -R 775 storage bootstrap/cache
 
-# Start Laravel server
-CMD php artisan serve --host=0.0.0.0 --port=10000
+# Expose port (for Laravel dev server if used)
+EXPOSE 8000
+
+# Start Laravel (adjust if using Nginx in production)
+CMD php artisan serve --host=0.0.0.0 --port=8000
